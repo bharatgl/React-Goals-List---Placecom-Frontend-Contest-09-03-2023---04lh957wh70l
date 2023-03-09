@@ -5,16 +5,18 @@ import ListOfGoals from './ListOfGoals';
 
 const App = () => {
 
-  const [allGoals, setAllGoals] = useState([]);
+const [allGoals, setAllGoals] = useState([]);
 
-  return (
-    <div id="main">
-      <GoalForm />
-      <ListOfGoals />
-    </div>
-  )
-  
-}
+const addGoal = (newGoal) => {
+setAllGoals([...allGoals, newGoal]);
+};
 
+return (
+<div id="main">
+<GoalForm addGoal={addGoal} />
+<ListOfGoals goals={allGoals} />
+</div>
+);
+};
 
 export default App;
